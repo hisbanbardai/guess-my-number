@@ -1,10 +1,20 @@
 'use strict';
 
-const number = Math.floor(Math.random() * 20 + 1);
+let number = Math.floor(Math.random() * 20 + 1);
 let score = 20;
 
 document.querySelector('.check').addEventListener('click', () => {
   const userInput = Number(document.querySelector('.guess').value);
+
+  document.querySelector('.again').addEventListener('click', () => {
+    number = Math.floor(Math.random() * 20 + 1);
+    document.querySelector('.guess').value = '';
+    document.querySelector('.score').textContent = 20;
+    document.querySelector('.number').textContent = '?';
+    document.querySelector('.message').textContent = 'Start guessing...';
+    document.querySelector('body').style.backgroundColor = '#222';
+    document.querySelector('.number').style.width = '15rem';
+  });
 
   if (!userInput) {
     document.querySelector('.message').textContent = '🛑No number!!';
