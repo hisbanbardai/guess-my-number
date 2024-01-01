@@ -7,9 +7,10 @@ document.querySelector('.check').addEventListener('click', () => {
   const userInput = Number(document.querySelector('.guess').value);
 
   document.querySelector('.again').addEventListener('click', () => {
+    score = 20;
     number = Math.floor(Math.random() * 20 + 1);
     document.querySelector('.guess').value = '';
-    document.querySelector('.score').textContent = 20;
+    document.querySelector('.score').textContent = score;
     document.querySelector('.number').textContent = '?';
     document.querySelector('.message').textContent = 'Start guessing...';
     document.querySelector('body').style.backgroundColor = '#222';
@@ -21,7 +22,10 @@ document.querySelector('.check').addEventListener('click', () => {
   } else if (userInput === number) {
     document.querySelector('.message').textContent = 'Correct🏆';
     document.querySelector('.number').textContent = userInput;
-    document.querySelector('.highscore').textContent = score;
+
+    if (score >= Number(document.querySelector('.highscore').textContent)) {
+      document.querySelector('.highscore').textContent = score;
+    }
     document.querySelector('body').style.backgroundColor = '#60b347';
     document.querySelector('.number').style.width = '30rem';
   } else if (userInput > number) {
