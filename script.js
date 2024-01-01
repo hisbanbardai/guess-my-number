@@ -10,7 +10,10 @@ document.querySelector('.check').addEventListener('click', () => {
     document.querySelector('.message').textContent = '🛑No number!!';
   } else if (userInput === number) {
     document.querySelector('.message').textContent = 'Correct🏆';
+    document.querySelector('.number').textContent = userInput;
     document.querySelector('.highscore').textContent = score;
+    document.querySelector('body').style.backgroundColor = '#60b347';
+    document.querySelector('.number').style.width = '30rem';
   } else if (userInput > number) {
     document.querySelector('.message').textContent = 'Too high📈';
     score -= 1;
