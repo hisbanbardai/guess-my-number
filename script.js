@@ -28,13 +28,15 @@ document.querySelector('.check').addEventListener('click', () => {
     }
     document.querySelector('body').style.backgroundColor = '#60b347';
     document.querySelector('.number').style.width = '30rem';
-  } else if (userInput > number) {
-    document.querySelector('.message').textContent = 'Too high📈';
-    score -= 1;
-    document.querySelector('.score').textContent = score;
-  } else {
-    document.querySelector('.message').textContent = 'Too low📉';
-    score -= 1;
-    document.querySelector('.score').textContent = score;
+  } else if (userInput !== number) {
+    if (score > 1) {
+      document.querySelector('.message').textContent =
+        userInput > number ? 'Too high📈' : 'Too low📉';
+      score -= 1;
+      document.querySelector('.score').textContent = score;
+    } else {
+      document.querySelector('.message').textContent = 'You lost the game!';
+      document.querySelector('.score').textContent = 0;
+    }
   }
 });
